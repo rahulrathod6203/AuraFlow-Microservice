@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: user-profile-service
+  main:
+    banner-mode: off
+
+  # Database configuration (MySQL for Test Environment)
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA Hibernate configuration
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
+# JWT
+app:
+  jwt-secret: ${JWT_SECRET}
+  jwt-expiration-milliseconds: ${JWT_EXPIRATION}
