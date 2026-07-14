@@ -54,7 +54,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "service-registry",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/rahul/Aura-Microservice",
     "node.js.detected.package.eslint": "true",
@@ -130,7 +130,7 @@
       <updated>1784012145762</updated>
       <workItem from="1784012146784" duration="33000" />
       <workItem from="1784012523573" duration="463000" />
-      <workItem from="1784014248573" duration="511000" />
+      <workItem from="1784014248573" duration="821000" />
     </task>
     <servers />
   </component>
