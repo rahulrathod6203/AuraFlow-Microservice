@@ -8,7 +8,7 @@
         <version>4.0.6</version>
         <relativePath/> </parent>
     <groupId>com.awp</groupId>
-    <artifactId>periodLog-log-service</artifactId>
+    <artifactId>period-log-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Period Log Service</name>
     <description>A REST API for managing users menstrual cycle logs</description>

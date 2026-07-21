@@ -19,6 +19,7 @@ import java.net.URI;
 @RequestMapping("api/v1/auth")
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin("http://localhost:5173/*")
 public class AuthController {
 
     private final UserAuthService userAuthService;

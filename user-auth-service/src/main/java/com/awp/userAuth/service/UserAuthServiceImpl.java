@@ -43,6 +43,7 @@ public class UserAuthServiceImpl implements UserAuthService {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.email(), loginRequest.password())
         );
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
         log.info("Authentication manager verification successful. SecurityContext updated for email: {}", loginRequest.email());
 
