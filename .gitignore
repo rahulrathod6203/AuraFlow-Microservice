@@ -26,3 +26,5 @@ replay_pid*
 #Intelli J Idea
 .idea
 *.iml
+.DS_Store
+.ai/
