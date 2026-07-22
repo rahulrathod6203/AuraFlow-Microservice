@@ -16,9 +16,9 @@ public class AdminController {
 
     private final UserAuthService userAuthService;
 
-    @GetMapping
+    @GetMapping("/list-users")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<UserResponse>> fetchRegisteredUsers(){
+    public ResponseEntity<List<RegisteredUsers>> fetchRegisteredUsers(){
         return ResponseEntity.ok(userAuthService.fetchRegisteredUsers());
     }
 

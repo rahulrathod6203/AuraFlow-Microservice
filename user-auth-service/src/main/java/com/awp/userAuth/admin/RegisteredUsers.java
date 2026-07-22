@@ -1,31 +1,28 @@
-package com.awp.userProfile.dto;
+package com.awp.userAuth.admin;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Builder;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.Instant;
-import java.util.Set;
 
-@Builder
-public record UserProfileResponse(
+public record RegisteredUsers(
 
         Long id,
 
-        String name,
+        String email,
 
-        String phone,
+        String password,
 
-        String address,
+        Boolean active,
 
-//        Boolean active,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        String role,
 
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-yyyy hh:mm a", timezone = "Asia/Kolkata")
         Instant createdAt,
 
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-yyyy hh:mm a", timezone = "Asia/Kolkata")
         Instant updatedAt
-
 
 ) {
 }
