@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.Instant;
 
-public record RegisteredUsers(
+public record RegisteredUser(
 
         Long id,
 

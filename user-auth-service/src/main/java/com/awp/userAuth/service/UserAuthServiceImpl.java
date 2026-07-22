@@ -1,6 +1,6 @@
 package com.awp.userAuth.service;
 
-import com.awp.userAuth.admin.RegisteredUsers;
+import com.awp.userAuth.admin.RegisteredUser;
 import com.awp.userAuth.dto.*;
 import com.awp.userAuth.entity.Role;
 import com.awp.userAuth.exception.userDomain.EmailAlreadyExistsException;
@@ -100,8 +100,10 @@ public class UserAuthServiceImpl implements UserAuthService {
         log.info("Spring Security context successfully cleared for the user session.");
     }
 
+    // ************************** Admin Endpoints **************************
+
     @Override
-    public List<RegisteredUsers> fetchRegisteredUsers() {
+    public List<RegisteredUser> fetchRegisteredUsers() {
         List<User> users = userRepository.findAll();
         return users.stream().map(userMapper::toResponse).toList();
     }
@@ -117,5 +119,24 @@ public class UserAuthServiceImpl implements UserAuthService {
         user.setRole(Role.ADMIN);
         userRepository.save(user);
         return "User has been granted as Admin role successfully!";
+    }
+
+    @Override
+    public RegisteredUser fetchRegisteredUserById(Long id) {
+        log.info("Fetching user by id from the database!");
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found with the given id!"));
+        log.info("Fetched user {}, from database successfully",user.getEmail());
+        return userMapper.toResponse(user);
+    }
+
+    @Transactional
+    @Override
+    public String removeRegisteredUserById(Long id) {
+        log.info("Trying to remove user from the database!");
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found with the given id!"));
+        userRepository.delete(user);
+        log.info("Successfully deleted user {}, from database!",user.getEmail());
+
+        return "User "+user.getEmail()+" removed successfully!";
     }
 }

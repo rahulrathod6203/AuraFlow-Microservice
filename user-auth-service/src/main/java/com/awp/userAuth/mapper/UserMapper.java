@@ -1,6 +1,6 @@
 package com.awp.userAuth.mapper;
 
-import com.awp.userAuth.admin.RegisteredUsers;
+import com.awp.userAuth.admin.RegisteredUser;
 import com.awp.userAuth.dto.RegisterRequest;
 import com.awp.userAuth.entity.User;
 import org.mapstruct.Mapper;
@@ -16,6 +16,6 @@ public interface UserMapper {
     @Mapping(target = "role", ignore = true)
     User toEntity(RegisterRequest registerRequest);
 
-    RegisteredUsers toResponse(User user);
+    RegisteredUser toResponse(User user);
 
 }

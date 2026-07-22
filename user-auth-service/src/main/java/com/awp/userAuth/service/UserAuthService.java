@@ -1,6 +1,6 @@
 package com.awp.userAuth.service;
 
-import com.awp.userAuth.admin.RegisteredUsers;
+import com.awp.userAuth.admin.RegisteredUser;
 import com.awp.userAuth.dto.*;
 
 import java.util.List;
@@ -13,10 +13,15 @@ public interface UserAuthService {
 
     void logout();
 
-    // Admin features
+    // ************************** Admin Endpoints **************************
 
-    List<RegisteredUsers> fetchRegisteredUsers();
+    List<RegisteredUser> fetchRegisteredUsers();
 
     String makeAdmin(String userEmail);
+
+    RegisteredUser fetchRegisteredUserById(Long id);
+
+    String removeRegisteredUserById(Long id);
+
 
 }
