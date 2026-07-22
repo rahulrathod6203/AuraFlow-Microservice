@@ -1,6 +1,6 @@
 package com.awp.userAuth.service;
 
-import com.awp.userAuth.admin.UserResponse;
+import com.awp.userAuth.admin.RegisteredUsers;
 import com.awp.userAuth.dto.*;
 import com.awp.userAuth.entity.Role;
 import com.awp.userAuth.exception.userDomain.EmailAlreadyExistsException;
@@ -16,14 +16,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -103,7 +101,7 @@ public class UserAuthServiceImpl implements UserAuthService {
     }
 
     @Override
-    public List<UserResponse> fetchRegisteredUsers() {
+    public List<RegisteredUsers> fetchRegisteredUsers() {
         List<User> users = userRepository.findAll();
         return users.stream().map(userMapper::toResponse).toList();
     }
