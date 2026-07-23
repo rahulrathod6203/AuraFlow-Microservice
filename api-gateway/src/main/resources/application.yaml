@@ -13,7 +13,7 @@ spring:
             - id: user-auth-service
               uri: lb://user-auth-service
               predicates:
-                - Path=/api/v1/auth/**, api/v1/admin/registered-users/**
+                - Path=/api/v1/auth/**,api/v1/admin/registered-users/**
 
             - id: user-profile-service
               uri: lb://user-profile-service
@@ -33,9 +33,3 @@ eureka:
 logging:
   level:
     org.springframework.cloud.gateway: TRACE
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: gateway,health,info
