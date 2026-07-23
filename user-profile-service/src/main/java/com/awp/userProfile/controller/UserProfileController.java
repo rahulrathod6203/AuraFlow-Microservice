@@ -21,6 +21,12 @@ public class UserProfileController {
     private final UserProfileService userProfileService;
     private final PeriodLogClient periodLogClient;
 
+    @GetMapping("/test")
+    public String test() {
+        System.out.println("Gateway reached User Profile Service");
+        return "User Profile Service OK";
+    }
+
     @GetMapping("/me")
     public ResponseEntity<UserProfileResponse> getMyProfile(
             @AuthenticationPrincipal UserPrincipal userPrincipal) {
