@@ -3,8 +3,10 @@ package com.awp;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
 public class UserProfileServiceApplication {
 
     public static void main(String[] args) {
@@ -14,9 +16,6 @@ public class UserProfileServiceApplication {
         dotenv.entries().forEach(entry -> {
             System.setProperty(entry.getKey(), entry.getValue());
         });
-
-
         SpringApplication.run(UserProfileServiceApplication.class, args);
     }
-
 }

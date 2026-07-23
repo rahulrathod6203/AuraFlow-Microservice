@@ -25,10 +25,11 @@ public class PeriodLogController {
 
     @GetMapping
     public ResponseEntity<PeriodLogResponsePage> getAllPeriodLogs(
+            @AuthenticationPrincipal UserPrincipal userPrincipal,
             @RequestParam(defaultValue = AppConstants.DEFAULT_PAGE_NO) int pageNo,
             @RequestParam(defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int pageSize,
-            @RequestParam(defaultValue = AppConstants.DEFAULT_SORT_BY) String sortBy,
-            @AuthenticationPrincipal UserPrincipal userPrincipal) {
+            @RequestParam(defaultValue = AppConstants.DEFAULT_SORT_BY) String sortBy
+            ) {
         return ResponseEntity.ok(
                 periodLogService.getAllPeriodLogs(userPrincipal.getUserId(), pageNo, pageSize, sortBy)
         );
